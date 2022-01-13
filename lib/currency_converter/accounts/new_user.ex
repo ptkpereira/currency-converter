@@ -1,5 +1,6 @@
-defmodule CurrencyConverter.NewUser do
-  alias CurrencyConverter.{Repo, User}
+defmodule CurrencyConverter.Accounts.NewUser do
+  alias CurrencyConverter.Repo
+  alias CurrencyConverter.Accounts.User
 
   def run(attrs \\ %{}) do
     %User{}

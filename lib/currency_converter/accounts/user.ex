@@ -1,9 +1,12 @@
-defmodule CurrencyConverter.User do
+defmodule CurrencyConverter.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias CurrencyConverter.Transaction
+
   schema "users" do
     field :name, :string
+    has_many :transactions, Transaction
 
     timestamps()
   end

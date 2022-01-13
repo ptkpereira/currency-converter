@@ -12,7 +12,8 @@ defmodule CurrencyConverterWeb.UserView do
   def render("user.json", %{user: user}) do
     %{
       id: user.id,
-      name: user.name
+      name: user.name,
+      created_at: user.inserted_at
     }
   end
 end
