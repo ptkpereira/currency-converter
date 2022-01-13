@@ -8,9 +8,9 @@ defmodule CurrencyConverterWeb.Router do
   scope "/api", CurrencyConverterWeb do
     pipe_through :api
 
-    get "/users", UserController, :index
-    get "/users/:id", UserController, :show
-    post "/users", UserController, :create
+    resources "/users", UserController, only: [:index, :show, :create] do
+      resources "/transactions", TransactionController, only: [:index, :show, :create]
+    end
   end
 
   # Enables LiveDashboard only for development

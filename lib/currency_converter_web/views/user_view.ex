@@ -2,7 +2,7 @@ defmodule CurrencyConverterWeb.UserView do
   use CurrencyConverterWeb, :view
 
   def render("index.json", %{users: users}) do
-    %{users: render_many(users, __MODULE__, "show.json")}
+    %{users: render_many(users, __MODULE__, "user.json")}
   end
 
   def render("show.json", %{user: user}) do
@@ -10,10 +10,8 @@ defmodule CurrencyConverterWeb.UserView do
   end
 
   def render("user.json", %{user: user}) do
-    %{
-      id: user.id,
-      name: user.name,
-      created_at: user.inserted_at
-    }
+    user
+    |> Map.from_struct()
+    |> Map.take([:id])
   end
 end
