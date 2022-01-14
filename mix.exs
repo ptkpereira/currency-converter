@@ -10,7 +10,17 @@ defmodule CurrencyConverter.MixProject do
       compilers: [:gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+
+      # Docs
+      name: "Currency Converter",
+      source_url: "https://github.com/USER/PROJECT",
+      homepage_url: "http://YOUR_PROJECT_HOMEPAGE",
+      docs: [
+        # The main page in the docs
+        main: "Currency Converter",
+        extras: ["README.md"]
+      ]
     ]
   end
 
@@ -47,7 +57,8 @@ defmodule CurrencyConverter.MixProject do
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:decimal, "~> 2.0"},
       {:tesla, "~> 1.4"},
-      {:hackney, "~> 1.17"}
+      {:hackney, "~> 1.17"},
+      {:ex_doc, "~> 0.27", only: :dev, runtime: false}
     ]
   end
 

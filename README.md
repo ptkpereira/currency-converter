@@ -27,7 +27,7 @@ For to make easier the access to the Exchanges Rates endpoint, uses [Tesla](http
 ### Set Exchanges Rates API key
 
 - Create account and get a free API Key in [`https://exchangeratesapi.io/`](https://exchangeratesapi.io/)
-- Rename _.env.example_ to _.env_ and put your API Key
+- Rename `.env.example` to `.env` and put your API Key
 
 ### Database
 
@@ -42,6 +42,13 @@ For to make easier the access to the Exchanges Rates endpoint, uses [Tesla](http
 - Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
 
 Now the API will be listening for your requests at [`localhost:4000`](http://localhost:4000)
+
+<!-- DOCUMENTATION -->
+
+## Documentation
+
+- Run this code and generate the documentation `mix docs`
+- This will generate a `doc/` directory with a documentation in HTML. Open the `index.html` file this directory in the browser to view the documentation.
 
 <!-- LICENSE -->
 

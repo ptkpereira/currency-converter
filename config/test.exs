@@ -21,7 +21,7 @@ config :currency_converter, CurrencyConverterWeb.Endpoint,
   server: false
 
 # In test we don't send emails.
-config :currency_converter, CurrencyConverter.Mailer, adapter: Swoosh.Adapters.Test
+# config :currency_converter, CurrencyConverter.Mailer, adapter: Swoosh.Adapters.Test
 
 # Print only warnings and errors during test
 config :logger, level: :warn
