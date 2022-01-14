@@ -2,11 +2,11 @@ defmodule CurrencyConverterWeb.TransactionController do
   use CurrencyConverterWeb, :controller
 
   alias CurrencyConverter.Transaction.{
-    ListTransactions,
-    GetTransaction,
-    NewTransaction,
+    Converter,
     ExchangeRatesApi,
-    Converter
+    GetTransaction,
+    ListTransactions,
+    NewTransaction
   }
 
   alias CurrencyConverter.Accounts.GetUser

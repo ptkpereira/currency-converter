@@ -1,4 +1,8 @@
 defmodule CurrencyConverter.Transaction.ExchangeRatesApi do
+  @moduledoc """
+  Get rates in Exchange Rates Api
+  """
+
   use Tesla
 
   plug Tesla.Middleware.BaseUrl,

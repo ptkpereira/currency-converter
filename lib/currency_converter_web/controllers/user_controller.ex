@@ -1,7 +1,7 @@
 defmodule CurrencyConverterWeb.UserController do
   use CurrencyConverterWeb, :controller
 
-  alias CurrencyConverter.Accounts.{ListUsers, GetUser, NewUser}
+  alias CurrencyConverter.Accounts.{GetUser, ListUsers, NewUser}
 
   def index(conn, _params) do
     users = ListUsers.run()

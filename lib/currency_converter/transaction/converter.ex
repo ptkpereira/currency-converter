@@ -1,9 +1,11 @@
 defmodule CurrencyConverter.Transaction.Converter do
+  @moduledoc """
+  Convert currency
+  """
+
   @currencies ["BRL", "USD", "JPY"]
   def run(rates, origin_currency, origin_amount, destination_currency)
       when origin_currency === "EUR" do
-    IO.inspect(rates)
-
     destination_amount =
       number_convert(origin_amount)
       |> Decimal.mult(number_convert(rates[destination_currency]))

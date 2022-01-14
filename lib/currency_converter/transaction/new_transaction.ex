@@ -1,4 +1,8 @@
 defmodule CurrencyConverter.Transaction.NewTransaction do
+  @moduledoc """
+  Create transaction
+  """
+
   alias CurrencyConverter.Repo
   alias CurrencyConverter.Transaction
 

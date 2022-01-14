@@ -1,4 +1,8 @@
 defmodule CurrencyConverter.Transaction do
+  @moduledoc """
+  Transaction schema
+  """
+
   use Ecto.Schema
   import Ecto.Changeset
 

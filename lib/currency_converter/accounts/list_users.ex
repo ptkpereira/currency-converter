@@ -1,6 +1,10 @@
 defmodule CurrencyConverter.Accounts.ListUsers do
-  alias CurrencyConverter.Repo
+  @moduledoc """
+  Get all users
+  """
+
   alias CurrencyConverter.Accounts.User
+  alias CurrencyConverter.Repo
 
   def run do
     Repo.all(User)
