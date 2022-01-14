@@ -50,6 +50,12 @@ Now the API will be listening for your requests at [`localhost:4000`](http://loc
 - Run this code and generate the documentation `mix docs`
 - This will generate a `doc/` directory with a documentation in HTML. Open the `index.html` file this directory in the browser to view the documentation.
 
+<!-- TESTS -->
+
+## Tests
+
+To run the tests, open this project in terminal and run `mix test`
+
 <!-- LICENSE -->
 
 ## License
