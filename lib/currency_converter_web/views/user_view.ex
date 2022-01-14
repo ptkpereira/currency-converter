@@ -12,6 +12,6 @@ defmodule CurrencyConverterWeb.UserView do
   def render("user.json", %{user: user}) do
     user
     |> Map.from_struct()
-    |> Map.take([:id])
+    |> Map.take([:id, :name, :inserted_at, :updated_at])
   end
 end

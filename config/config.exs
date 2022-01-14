@@ -7,6 +7,8 @@
 # General application configuration
 import Config
 
+config :tesla, adapter: Tesla.Adapter.Hackney
+
 config :currency_converter,
   ecto_repos: [CurrencyConverter.Repo]
 

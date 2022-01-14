@@ -16,6 +16,7 @@ defmodule CurrencyConverterWeb.TransactionView do
       :destination_amount,
       calculate_amount(transaction.origin_amount, transaction.rate)
     )
+    |> Map.put(:date_time, transaction.inserted_at)
     |> Map.take([
       :id,
       :user_id,
@@ -23,7 +24,8 @@ defmodule CurrencyConverterWeb.TransactionView do
       :origin_amount,
       :destination_currency,
       :destination_amount,
-      :rate
+      :rate,
+      :date_time
     ])
   end
 

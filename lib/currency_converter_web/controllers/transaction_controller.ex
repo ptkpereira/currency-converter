@@ -24,7 +24,7 @@ defmodule CurrencyConverterWeb.TransactionController do
   def create(conn, %{"transaction" => transaction_params, "user_id" => user_id}) do
     user = GetUser.run(user_id)
 
-    result =
+    {rate, destination_amount} =
       ExchangeRatesApi.get_rates()
       |> Converter.run(
         transaction_params["origin_currency"],
@@ -34,7 +34,11 @@ defmodule CurrencyConverterWeb.TransactionController do
 
     case NewTransaction.run(
            transaction_params
-           |> Map.merge(%{"user_id" => user.id})
+           |> Map.merge(%{
+             "user_id" => user.id,
+             "rate" => rate,
+             "destination_amount" => destination_amount
+           })
          ) do
       {:ok, transaction} ->
         conn
