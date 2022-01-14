@@ -3,8 +3,8 @@ defmodule CurrencyConverter.Accounts.ListUsers do
   Get all users
   """
 
-  alias CurrencyConverter.Accounts.User
   alias CurrencyConverter.Repo
+  alias CurrencyConverter.Accounts.User
 
   def run do
     Repo.all(User)

@@ -58,6 +58,7 @@ defmodule CurrencyConverter.MixProject do
       {:decimal, "~> 2.0"},
       {:tesla, "~> 1.4"},
       {:hackney, "~> 1.17"},
+      {:ex_machina, "~> 2.7.0", only: :test},
       {:ex_doc, "~> 0.27", only: :dev, runtime: false}
     ]
   end

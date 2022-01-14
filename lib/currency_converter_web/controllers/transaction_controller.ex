@@ -17,12 +17,36 @@ defmodule CurrencyConverterWeb.TransactionController do
 
   @currencies ["BRL", "USD", "JPY", "EUR"]
 
-  def index(conn, _params) do
-    transactions = ListTransactions.run()
+  def index(conn, %{"user_id" => user_id}) do
+    user = GetUser.run(user_id)
+
+    case user do
+      nil ->
+        conn
+        |> put_status(:not_found)
+        |> render(CurrencyConverterWeb.ErrorView, "404.json", assigns: "user")
+
+      user ->
+        user
+    end
+
+    transactions = ListTransactions.run(user)
     render(conn, "index.json", transactions: transactions)
   end
 
-  def show(conn, %{"id" => id}) do
+  def show(conn, %{"id" => id, "user_id" => user_id}) do
+    user = GetUser.run(user_id)
+
+    case user do
+      nil ->
+        conn
+        |> put_status(:not_found)
+        |> render(CurrencyConverterWeb.ErrorView, "404.json", assigns: "user")
+
+      user ->
+        user
+    end
+
     case GetTransaction.run(id) do
       transaction = %Transaction{} ->
         conn
