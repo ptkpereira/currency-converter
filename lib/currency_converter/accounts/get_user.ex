@@ -7,6 +7,6 @@ defmodule CurrencyConverter.Accounts.GetUser do
   alias CurrencyConverter.Repo
 
   def run(id) do
-    Repo.get!(User, id)
+    Repo.get(User, id)
   end
 end

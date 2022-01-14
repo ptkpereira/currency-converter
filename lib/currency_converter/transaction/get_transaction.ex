@@ -7,6 +7,6 @@ defmodule CurrencyConverter.Transaction.GetTransaction do
   alias CurrencyConverter.Transaction
 
   def run(id) do
-    Repo.get!(Transaction, id)
+    Repo.get(Transaction, id)
   end
 end

@@ -14,11 +14,11 @@ defmodule CurrencyConverter.Transaction.ExchangeRatesApi do
   plug Tesla.Middleware.JSON
 
   def get_rates do
-    {:ok, response} = get("/")
+    # {:ok, response} = get("/")
 
-    response.body
-    |> Map.get("rates")
+    # response.body
+    # |> Map.get("rates")
 
-    # %{"BRL" => 6.3317, "JPY" => 130.7585929, "USD" => 1.146}
+    %{"BRL" => 6.3317, "JPY" => 130.7585929, "USD" => 1.146}
   end
 end
