@@ -10,11 +10,6 @@ defmodule CurrencyConverterWeb.UserController do
     render(conn, "index.json", users: users)
   end
 
-  # def show(conn, %{"id" => id}) do
-  #   user = GetUser.run(id)
-  #   render(conn, "show.json", user: user)
-  # end
-
   def show(conn, %{"id" => id}) do
     case GetUser.run(id) do
       user = %User{} ->
