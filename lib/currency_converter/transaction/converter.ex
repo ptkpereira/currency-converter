@@ -8,8 +8,8 @@ defmodule CurrencyConverter.Transaction.Converter do
   @currencies ["BRL", "USD", "JPY", "EUR"]
   def run(origin_currency, origin_amount, destination_currency)
       when origin_currency === "EUR" do
-    case check_params(origin_currency, origin_amount, destination_currency) do
-      {:ok, rates, _origin_currency, origin_amount, destination_currency} ->
+    case check_params_and_get_api(origin_currency, origin_amount, destination_currency) do
+      {:ok, rates} ->
         destination_amount =
           number_convert(origin_amount)
           |> Decimal.mult(number_convert(rates[destination_currency]))
@@ -26,8 +26,8 @@ defmodule CurrencyConverter.Transaction.Converter do
 
   def run(origin_currency, origin_amount, destination_currency)
       when destination_currency === "EUR" do
-    case check_params(origin_currency, origin_amount, destination_currency) do
-      {:ok, rates, origin_currency, origin_amount, _destination_currency} ->
+    case check_params_and_get_api(origin_currency, origin_amount, destination_currency) do
+      {:ok, rates} ->
         destination_amount = convert_to_eur(rates, origin_currency, origin_amount)
 
         rate =
@@ -44,8 +44,8 @@ defmodule CurrencyConverter.Transaction.Converter do
   # Origin and Destination Currency is not EUR
   def run(origin_currency, origin_amount, destination_currency)
       when origin_currency in @currencies and destination_currency in @currencies do
-    case check_params(origin_currency, origin_amount, destination_currency) do
-      {:ok, rates, origin_currency, origin_amount, destination_currency} ->
+    case check_params_and_get_api(origin_currency, origin_amount, destination_currency) do
+      {:ok, rates} ->
         # Convert Origin to EUR
         destination_amount =
           convert_to_eur(rates, origin_currency, origin_amount)
@@ -68,7 +68,14 @@ defmodule CurrencyConverter.Transaction.Converter do
     {:error, "params not found"}
   end
 
-  defp check_params(origin_currency, origin_amount, destination_currency) do
+  def check_params_and_get_api(origin_currency, origin_amount, destination_currency) do
+    case test_params(origin_currency, origin_amount, destination_currency) do
+      :ok -> ExchangeRatesApi.get_rates()
+      {:error, reason} -> {:error, reason}
+    end
+  end
+
+  defp test_params(origin_currency, origin_amount, destination_currency) do
     cond do
       origin_currency not in @currencies ->
         {:error, "origin currency not found"}
@@ -81,11 +88,7 @@ defmodule CurrencyConverter.Transaction.Converter do
 
       is_binary(origin_currency) and is_binary(destination_currency) and
           is_number(origin_amount) ->
-        # Get rates or returns error message from Rates Exchange API
-        case ExchangeRatesApi.get_rates() do
-          {:ok, rates} -> {:ok, rates, origin_currency, origin_amount, destination_currency}
-          {:error, reason} -> {:error, reason}
-        end
+        :ok
 
       true ->
         {:error, "params not found"}
