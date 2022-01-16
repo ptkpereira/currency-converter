@@ -1,6 +1,6 @@
 defmodule CurrencyConverter.Transaction.Converter do
   @moduledoc """
-  Convert currency
+  Convert currency according to parameters
   """
 
   alias CurrencyConverter.Transaction.ExchangeRatesApi
