@@ -1,4 +1,8 @@
 defmodule CurrencyConverterWeb.UserController do
+  @moduledoc """
+  User controller
+  """
+
   use CurrencyConverterWeb, :controller
 
   alias CurrencyConverter.Accounts.{GetUser, ListUsers, NewUser, User}

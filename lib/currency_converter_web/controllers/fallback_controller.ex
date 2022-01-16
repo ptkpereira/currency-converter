@@ -1,4 +1,8 @@
 defmodule CurrencyConverterWeb.FallbackController do
+  @moduledoc """
+  Fallback controller to handle errors
+  """
+
   use CurrencyConverterWeb, :controller
 
   def call(conn, {:error, %Ecto.Changeset{} = changeset}) do

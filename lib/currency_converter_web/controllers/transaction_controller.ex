@@ -1,4 +1,8 @@
 defmodule CurrencyConverterWeb.TransactionController do
+  @moduledoc """
+  Transaction controller
+  """
+
   use CurrencyConverterWeb, :controller
 
   alias CurrencyConverter.Transaction.{
