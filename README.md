@@ -93,6 +93,8 @@ For to make easier the access to the Exchanges Rates endpoint, uses [Tesla](http
 
 Now the API will be listening for your requests at [`localhost:4000`](http://localhost:4000)
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 <!-- USAGE -->
 
 ## Usage
@@ -176,6 +178,8 @@ PS, don't forget to get your API Key, to put in the .env.example file, rename it
 get /api/users/user_id/transactions
 ```
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 <!-- DOCUMENTATION -->
 
 ## Documentation
@@ -183,11 +187,15 @@ get /api/users/user_id/transactions
 - Run this code and generate the documentation `mix docs`
 - This will generate a `doc/` directory with a documentation in HTML. Open the `index.html` file this directory in the browser to view the documentation.
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 <!-- TESTS -->
 
 ## Tests
 
 To run the tests, open this project in terminal and run `mix test`
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- LICENSE -->
 
