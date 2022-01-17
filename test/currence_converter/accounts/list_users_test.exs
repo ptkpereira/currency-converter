@@ -1,4 +1,6 @@
 defmodule CurrencyConverter.Accounts.ListUsersTest do
+  @moduledoc false
+
   use CurrencyConverter.DataCase, async: true
 
   import CurrencyConverter.Factory

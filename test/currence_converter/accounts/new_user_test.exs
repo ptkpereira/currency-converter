@@ -1,4 +1,6 @@
 defmodule CurrencyConverter.Accounts.NewUserTest do
+  @moduledoc false
+
   use CurrencyConverter.DataCase, async: true
 
   alias CurrencyConverter.Accounts.{NewUser, User}

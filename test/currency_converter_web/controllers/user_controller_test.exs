@@ -1,4 +1,6 @@
 defmodule CurrencyConverterWeb.UserControllerTest do
+  @moduledoc false
+
   use CurrencyConverterWeb.ConnCase
 
   import CurrencyConverter.Factory
