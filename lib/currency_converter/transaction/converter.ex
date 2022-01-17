@@ -6,6 +6,7 @@ defmodule CurrencyConverter.Transaction.Converter do
   alias CurrencyConverter.Transaction.ExchangeRatesApi
 
   @currencies ["BRL", "USD", "JPY", "EUR"]
+  # Origin Currency is EUR
   def run(origin_currency, origin_amount, destination_currency)
       when origin_currency === "EUR" do
     case check_params_and_get_api(origin_currency, origin_amount, destination_currency) do
@@ -24,6 +25,7 @@ defmodule CurrencyConverter.Transaction.Converter do
     end
   end
 
+  # Destination Currency is EUR
   def run(origin_currency, origin_amount, destination_currency)
       when destination_currency === "EUR" do
     case check_params_and_get_api(origin_currency, origin_amount, destination_currency) do
@@ -68,6 +70,7 @@ defmodule CurrencyConverter.Transaction.Converter do
     {:error, "params not found"}
   end
 
+  # Validates the parameters before request the API
   def check_params_and_get_api(origin_currency, origin_amount, destination_currency) do
     case test_params(origin_currency, origin_amount, destination_currency) do
       :ok -> ExchangeRatesApi.get_rates()
@@ -75,6 +78,7 @@ defmodule CurrencyConverter.Transaction.Converter do
     end
   end
 
+  # Validates parameter types
   defp test_params(origin_currency, origin_amount, destination_currency) do
     cond do
       origin_currency not in @currencies ->
